@@ -13,7 +13,7 @@ import org.firstinspires.ftc.teamcode.Subsystems.Launcher;
 import org.firstinspires.ftc.teamcode.Subsystems.Ramp;
 
 @TeleOp(name = "manualEX")
-public class ManualEX extends OpMode {
+public class Teleop extends OpMode {
     Drive driveS;
     Launcher launcherS;
     Intake intakeS;
