@@ -15,20 +15,20 @@ import org.firstinspires.ftc.teamcode.Subsystems.Ramp;
 @TeleOp(name = "manualEX")
 public class Teleop extends OpMode {
     Drive driveS;
-    Launcher launcherS;
-    Intake intakeS;
-    Ramp rampS;
+    // Keep commented out until hardware is connected
+    // Launcher launcherS;
+    // Intake intakeS;
+    // Ramp rampS;
 
     GamepadEx driver;
     GamepadEx operator;
 
-
     @Override
     public void init() {
         driveS = new Drive(hardwareMap, telemetry);
-        launcherS = new Launcher(hardwareMap);
-        intakeS = new Intake(hardwareMap);
-        rampS = new Ramp(hardwareMap);
+        // launcherS = new Launcher(hardwareMap);
+        // intakeS = new Intake(hardwareMap);
+        // rampS = new Ramp(hardwareMap);
 
         driver = new GamepadEx(gamepad1);
         operator = new GamepadEx(gamepad2);
@@ -39,7 +39,13 @@ public class Teleop extends OpMode {
         driver.readButtons();
         operator.readButtons();
 
-        driveS.fieldCentricDrive(driver.getLeftX(),-driver.getLeftY(),driver.getRightX());
+        // Update Pinpoint odometry readings every loop
+        driveS.updateOdom();
+
+        // Field-centric drive
+        driveS.fieldCentricDrive(driver.getLeftX(), -driver.getLeftY(), driver.getRightX());
+
+        /* Commented out until mechanisms are plugged in and initialized to prevent NullPointerExceptions:
 
         if (operator.wasJustPressed(GamepadKeys.Button.RIGHT_BUMPER) || driver.wasJustPressed(GamepadKeys.Button.RIGHT_BUMPER)) {
             launcherS.enable(0.35);
@@ -66,13 +72,15 @@ public class Teleop extends OpMode {
         } else if (operator.wasJustPressed(GamepadKeys.Button.DPAD_RIGHT) || driver.wasJustPressed(GamepadKeys.Button.DPAD_RIGHT)) {
             rampS.disable();
         }
+        */
 
         telemetry();
     }
 
     public void telemetry() {
-        telemetry.addData("XPos: ",driveS.getX(DistanceUnit.INCH));
-        telemetry.addData("YPos: ",driveS.getY(DistanceUnit.INCH));
-        telemetry.addData("Heading: ",driveS.getH(AngleUnit.DEGREES));
+        telemetry.addData("XPos: ", driveS.getX(DistanceUnit.INCH));
+        telemetry.addData("YPos: ", driveS.getY(DistanceUnit.INCH));
+        telemetry.addData("Heading: ", driveS.getH(AngleUnit.DEGREES));
+        telemetry.update();
     }
 }
