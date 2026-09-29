@@ -23,10 +23,10 @@ public class Drive extends SubsystemBase {
         motorBL = new MotorEx(hardwareMap, "motorBL", Motor.GoBILDA.RPM_312); //EH1
         motorBR = new MotorEx(hardwareMap, "motorBR", Motor.GoBILDA.RPM_312); //CH1
 
-        motorFL.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
-        motorFR.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
-        motorBL.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
-        motorBR.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        motorFL.setZeroPowerBehavior(Motor.ZeroPowerBehavior.FLOAT);
+        motorFR.setZeroPowerBehavior(Motor.ZeroPowerBehavior.FLOAT);
+        motorBL.setZeroPowerBehavior(Motor.ZeroPowerBehavior.FLOAT);
+        motorBR.setZeroPowerBehavior(Motor.ZeroPowerBehavior.FLOAT);
 
         motorBR.setInverted(false);
         motorBL.setInverted(false);

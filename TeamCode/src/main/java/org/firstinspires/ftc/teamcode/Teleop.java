@@ -43,7 +43,7 @@ public class Teleop extends OpMode {
         driveS.updateOdom();
 
         // Field-centric drive
-        driveS.fieldCentricDrive(driver.getLeftX(), -driver.getLeftY(), driver.getRightX());
+        driveS.fieldCentricDrive(driver.getLeftX(), driver.getLeftY(), driver.getRightX());
 
         /* Commented out until mechanisms are plugged in and initialized to prevent NullPointerExceptions:
 
