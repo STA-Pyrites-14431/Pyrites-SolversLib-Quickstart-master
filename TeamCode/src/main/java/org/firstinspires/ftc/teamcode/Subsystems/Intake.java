@@ -11,7 +11,7 @@ public class Intake extends SubsystemBase {
 
     public Intake(HardwareMap hwMap) {
         motorI = new MotorEx(hwMap,"motorI");
-        motorI.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+        motorI.setZeroPowerBehavior(Motor.ZeroPowerBehavior.FLOAT);
     }
 
     public void forward() {
