@@ -27,7 +27,7 @@ public class Teleop extends OpMode {
     public void init() {
         driveS = new Drive(hardwareMap, telemetry);
         // launcherS = new Launcher(hardwareMap);
-        // intakeS = new Intake(hardwareMap);
+        //intakeS = new Intake(hardwareMap);
         // rampS = new Ramp(hardwareMap);
 
         driver = new GamepadEx(gamepad1);
